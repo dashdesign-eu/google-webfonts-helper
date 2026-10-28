@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # global npm installs
-RUN npm install -g grunt-cli@1.2.0 \
+RUN npm install -g grunt-cli@1.5.0 \
     && npm cache clean --force
 
 WORKDIR /app
@@ -41,7 +41,7 @@ FROM development AS builder
 # install server and bundler deps
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
-RUN yarn --pure-lockfile
+RUN yarn --frozen-lockfile
 
 # install clientside deps (bower is a managed application local dev dep)
 COPY bower.json /app/bower.json
@@ -57,7 +57,7 @@ RUN grunt build
 # prepare production node_modules (this cleans up dev deps)
 # https://github.com/vercel/next.js/pull/23056
 # https://github.com/yarnpkg/yarn/issues/6373
-RUN yarn install --production --ignore-scripts --prefer-offline
+RUN yarn install --production --ignore-scripts --prefer-offline --frozen-lockfile
 
 ### -----------------------
 # --- Stage: production
