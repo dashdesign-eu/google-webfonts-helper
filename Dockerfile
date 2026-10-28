@@ -11,7 +11,7 @@ RUN npm run lint && npm run tsc && npm run build && npm run test:client
 RUN npm prune --omit=dev --ignore-scripts && npm cache clean --force
 
 FROM node:24.22.1-trixie-slim AS production
-RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates tini \
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl tini \
     && rm -rf /var/lib/apt/lists/*
 USER node
 WORKDIR /app
