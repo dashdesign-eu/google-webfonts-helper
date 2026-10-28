@@ -48,3 +48,11 @@ unused Grunt/Bower orchestration and Angular sources have been removed.
 An audit result alone is not a live deployment or a refreshed Dependency-Track
 result. The release must be merged through GitHub, deployed via Coolify, checked
 on the public font/ZIP API and reimported before remaining risk is reported.
+
+## Coolify healthcheck compatibility
+
+The production slim image explicitly includes curl because the existing Coolify
+healthcheck runs curl/wget against `/-/healthy`. A rollout correctly refused a
+healthy switch when both clients were absent; the previous deployment remained
+available. Keep this client installed and verify the actual healthcheck inside
+the production image before future slim-image changes.
