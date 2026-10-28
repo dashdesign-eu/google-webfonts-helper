@@ -118,34 +118,33 @@ docker run -e GOOGLE_FONTS_API_KEY=<YOUR-API-KEY> -p 8080:8080 ghcr.io/majodev/g
 
 ### Quickstart
 
-Do this to setup a development environment:
+Use Node.js 24.22.1 and the committed npm lockfile. The browser client uses native
+ES modules; Grunt, Bower, AngularJS and jQuery are no longer required.
+
 ```bash
-# Ensure to set the GOOGLE_FONTS_API_KEY env var inside your own gitignored .env file
-# See https://developers.google.com/fonts/docs/developer_api for creating your own API-Key.
-echo "GOOGLE_FONTS_API_KEY=<YOUR-API-KEY>" > .env
-
-# Start up the development docker container (multistage Dockerfile, stage 1 only)
-./docker-helper.sh --up
-# [+] Running 1/0
-#  ⠿ Container gwfh-service-1  Running
-# node@3b506a285f7f:/app$
-
-# within this development container:
-node$ yarn --pure-lockfile
-node$ ./node_modules/.bin/bower install
-
-# start development server
-node$ grunt serve
-# [...]
-# Express server listening on 9000, in development mode
-
-# The application is now available at http://127.0.0.1:9000 (watching for code changes)
-
-# start production server (same command as within the final docker multistage build)
-node$ grunt build
-node$ NODE_ENV=production node dist/server/app.js
-# Express server listening on 8080, in production mode
+npm ci
+export GOOGLE_FONTS_API_KEY='<YOUR-API-KEY>'
+npm run lint
+npm run tsc
+npm run build
+npm run dev
 ```
+
+The development server defaults to port 9000. Rebuild after changing client
+sources; the server watch mode reloads compiled server changes. No font cache is
+removed by the build. For local fixture checks, set `GOOGLE_FONTS_API_KEY=test`
+and `GOOGLE_FONTS_USE_TEST_JSON=true`; production must use its real existing key.
+
+```bash
+GOOGLE_FONTS_API_KEY=test npm test
+npm run test:client
+npx playwright install chromium
+npm run test:browser
+NODE_ENV=production node dist/server/app.js
+```
+
+See [the security migration](docs/security-native-client-2026-10-29.md) for the
+preserved API/visual contract and release checks.
 
 ### Production build
 

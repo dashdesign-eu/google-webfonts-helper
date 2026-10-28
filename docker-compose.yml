@@ -6,9 +6,6 @@ services:
     ports:
       - "9000:9000" # development
       - "8080:8080" # production
-      - "35729:35729" # livereload
-      - "5858:5858" # debugger
-      - "9229:9229" # profiler
     working_dir: &PROJECT_ROOT_DIR /app
     # linux permissions: we must explicitly run as the node user
     user: node

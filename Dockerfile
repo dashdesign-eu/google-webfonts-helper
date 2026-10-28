@@ -1,3 +1,7 @@
+FROM node:24.22.1-trixie AS development
+WORKDIR /app
+USER node
+
 FROM node:24.22.1-trixie AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
