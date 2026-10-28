@@ -1,4 +1,4 @@
-import * as Bluebird from "bluebird";
+import Bluebird from "bluebird";
 import * as _ from "lodash";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

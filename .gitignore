@@ -11,4 +11,6 @@ dist
 npm-debug.log
 .tscache
 tscommand-
+test-results/
+playwright-report/
 /tmp

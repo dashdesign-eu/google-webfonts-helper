@@ -1,0 +1,20 @@
+[hidden] { display: none !important; }
+.font-order summary { list-style: none; }
+.font-order summary::-webkit-details-marker { display: none; }
+.font-order[open] .dropdown-menu { display: block; }
+.font-order select { border: 0; box-shadow: none; min-width: 160px; }
+#searchclear { border: 0; background: transparent; padding: 0; z-index: 2; }
+#searchclear:not([hidden]) { display: inline-block; }
+.support-tab { display: block; padding: 10px 15px; border: 0; border-radius: 4px; color: #428bca; background: transparent; }
+.support-tab:hover { background: #eee; }
+.active > .support-tab { color: #fff; background: #428bca; }
+.support-tab:focus-visible, #searchclear:focus-visible, [contenteditable]:focus-visible { outline: 2px solid #428bca; outline-offset: 2px; }
+.cssCodeStyle pre { margin: 0; border: 0; background: transparent; white-space: pre-wrap; overflow-wrap: anywhere; }
+.cssCodeStyle code { display: block; padding: .5em; color: #000; background: #f0f0f0; }
+.hljs-comment { color: #888; }
+.hljs-string { color: #800; }
+.hljs-keyword { font-weight: bold; }
+.hljs-attribute { color: #000; }
+#request-error { padding-block: 20px; }
+#fontStylePreviewChooser [contenteditable] { min-height: 1.4em; }
+@media (prefers-reduced-motion: reduce) { .pulse, .actSponsorButton { animation: none; opacity: 1; } }

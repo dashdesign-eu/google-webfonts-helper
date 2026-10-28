@@ -1,0 +1,47 @@
+[
+  {
+    "path": "/assets/images/006b0063.swirl.png",
+    "sha256": "24077277c7538c4440bcdfef216b581b84f0254434c502374f2c935b2d762181",
+    "bytes": 6587
+  },
+  {
+    "path": "/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot",
+    "sha256": "f495f34e4f177cf0115af995bbbfeb3fcabc88502876e76fc51a4ab439bc8431",
+    "bytes": 20335
+  },
+  {
+    "path": "/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg",
+    "sha256": "d168d50a88c730b4e6830dc0da2a2b51dae4658a77d9619943c27b8ecfc19d1a",
+    "bytes": 62927
+  },
+  {
+    "path": "/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf",
+    "sha256": "bd18efd3efd70fec8ad09611a20cdbf99440b2c1d40085c29be036f891d65358",
+    "bytes": 41280
+  },
+  {
+    "path": "/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff",
+    "sha256": "fc969dc1c6ff531abcf368089dcbaf5775133b0626ff56b52301a059fc0f9e1e",
+    "bytes": 23320
+  },
+  {
+    "path": "/bower_components/font-awesome/fonts/fontawesome-webfont.eot",
+    "sha256": "e511891d3e01b0b27aed51a219ced5119e2c3d0460465af8242e9bff4cb61b77",
+    "bytes": 56006
+  },
+  {
+    "path": "/bower_components/font-awesome/fonts/fontawesome-webfont.svg",
+    "sha256": "d5b5636ebb2e124810436200086b74a60dff9e8a8be7f4a1088bf5d3458bc3c8",
+    "bytes": 287007
+  },
+  {
+    "path": "/bower_components/font-awesome/fonts/fontawesome-webfont.ttf",
+    "sha256": "4d6eb9e9d852a2a6f74e7c428456a2f07fc63a1613d10192d8ed3401d9da5ffa",
+    "bytes": 112160
+  },
+  {
+    "path": "/bower_components/font-awesome/fonts/fontawesome-webfont.woff",
+    "sha256": "199411f659f41aaccb959bacb1b0de30e54f244352a48c6f9894e65ae0f8a9a1",
+    "bytes": 65452
+  }
+]

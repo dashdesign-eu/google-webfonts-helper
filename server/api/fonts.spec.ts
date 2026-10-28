@@ -1,8 +1,10 @@
-import { fromBuffer as fileTypeFromBuffer } from "file-type";
-import * as JSZip from "jszip";
+async function fileTypeFromBuffer(buffer: Buffer) {
+  return (await import("file-type")).fileTypeFromBuffer(buffer);
+}
+import JSZip from "jszip";
 import * as _ from "lodash";
-import * as should from "should";
-import * as request from "supertest";
+import should from "should";
+import request from "supertest";
 import { app } from "../app";
 import { getStats, reinitStore } from "../logic/store";
 
