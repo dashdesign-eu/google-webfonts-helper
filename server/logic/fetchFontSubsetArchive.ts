@@ -1,6 +1,6 @@
-import * as Bluebird from "bluebird";
+import Bluebird from "bluebird";
 import * as fs from "fs";
-import * as JSZip from "jszip";
+import JSZip from "jszip";
 import * as _ from "lodash";
 import * as path from "path";
 import { finished } from "stream/promises";

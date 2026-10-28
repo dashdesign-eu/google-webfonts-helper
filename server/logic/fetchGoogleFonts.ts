@@ -1,7 +1,7 @@
 import * as fs from "fs/promises";
 import * as _ from "lodash";
 import * as path from "path";
-import * as speakingurl from "speakingurl";
+import speakingurl from "speakingurl";
 import { config } from "../config";
 import { asyncRetry } from "../utils/asyncRetry";
 import axios from "axios";

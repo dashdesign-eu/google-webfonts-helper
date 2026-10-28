@@ -15,57 +15,72 @@
     <meta name="robots" content="all">
     <meta name="copyright" content="Copyright 2016 Mario Ranftl (majodev | MIT License)">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(client) app/vendor.css -->
-      <!-- bower:css -->
-      <link rel="stylesheet" href="bower_components/angular-busy/dist/angular-busy.css" />
-      <link rel="stylesheet" href="bower_components/highlightjs/styles/default.css" />
-      <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css({.tmp,client}) app/app.css -->
-    <link rel="stylesheet" href="app/app.css">
-      <!-- injector:css -->
-      <!-- endinjector -->
-    <!-- endbuild -->
+    <link rel="stylesheet" href="/app/base.css">
+    <link rel="stylesheet" href="/app/native.css">
   </head>
-  <body ng-app="googleWebfontsHelperApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+  <body>
+    <div class="fonts-top-container">
+      <header class="top-overlay"><div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4"><div class="input-group">
+          <div id="searchwrap" class="btn-group"><input id="searchinput" class="form-control" type="search" aria-label="Search fonts" placeholder="Search fonts" autofocus><button id="searchclear" aria-label="Clear search" hidden><i class="glyphicon glyphicon-remove-circle" aria-hidden="true"></i></button></div>
+          <details class="input-group-btn font-order"><summary id="orderButton" class="btn btn-default" aria-label="Order fonts"><i class="fa fa-filter" aria-hidden="true"></i></summary>
+            <div class="dropdown-menu"><label for="font-order" class="dropdown-header">Order by</label><select id="font-order" class="form-control" size="6"><option value="family">Family</option><option value="category">Category</option><option value="popularity">Popularity</option><option value="modified">Last modified</option><option value="styles">Number of styles</option><option value="charsets">Number of charsets</option></select><button id="reverse-order" class="btn btn-link" aria-pressed="false">Reverse order</button></div>
+          </details>
+        </div></div>
+        <div class="col-lg-10 col-md-9 col-sm-9 col-xs-8"><h4 class="page-header"><a href="/">google-webfonts-helper</a><br><small>Get eot, ttf, svg, woff and woff2 + CSS</small></h4>
+          <nav class="nav-push-right" aria-label="Project"><span id="sponsors"></span><a href="https://github.com/sponsors/majodev" target="_blank" rel="noopener" class="btn btn-default actNavButton"><i class="fa fa-heart-o sponsorheart" aria-hidden="true"></i> <strong>Sponsor</strong></a> <a href="https://github.com/majodev/google-webfonts-helper" target="_blank" rel="noopener" class="btn btn-default actNavButton"><i class="fa fa-star-o" aria-hidden="true"></i> <strong>Star</strong></a></nav>
+        </div>
+      </div></header>
+      <div class="box"><div class="row-fluid">
+        <aside class="col-lg-2 col-md-3 col-sm-3 col-xs-4 scrollerLeft column" aria-label="Fonts"><div class="list-group" id="font-list">Listing fonts...</div></aside>
+        <main class="col-lg-10 col-md-9 col-sm-9 col-xs-8 scrollerRight column"><p id="loading-status" role="status" hidden></p>
+          <div id="request-error" role="alert" hidden><h2>API Error</h2><p id="error-message"></p><button id="retry-request" class="btn btn-default">Try again</button></div><div id="font-detail"></div>
+        </main>
+      </div></div>
+    </div>
+    <template id="home-template">            <header class="jumbotron masthead">
+              <div class="inner">
+                <h1>google-webfonts-helper</h1>
+                <h2>A Hassle-Free Way to Self-Host Google Fonts</h2>
+                <h6>by <a href="http://mranftl.com" target="_blank" rel="noopener">Mario Ranftl</a></h6>
+                <hr />
 
-    <!-- Add your site or application content here -->
-    <div ui-view=""></div>
-    <!-- <a ui-sref="fonts">FONTS state</a> -->
+                <h3><small><i class="fa fa-arrow-circle-o-left pulse"></i>&nbsp;&nbsp;Select a font to
+                    continue...</small></h3>
 
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
-    <!-- build:js({client,node_modules}) app/vendor.js -->
-      <!-- bower:js -->
-      <script src="bower_components/jquery/dist/jquery.js"></script>
-      <script src="bower_components/angular/angular.js"></script>
-      <script src="bower_components/angular-animate/angular-animate.js"></script>
-      <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-      <script src="bower_components/angular-busy/dist/angular-busy.js"></script>
-      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-      <script src="bower_components/angular-resource/angular-resource.js"></script>
-      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-      <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-      <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-      <script src="bower_components/highlightjs/highlight.pack.js"></script>
-      <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-      <!-- endbower -->
-    <!-- endbuild -->
+              </div>
 
-        <!-- build:js({.tmp,client}) app/app.js -->
-        <script src="app/app.js"></script>
-          <!-- injector:js -->
-          <script src="app/cssCode/cssCode.directive.js"></script>
-          <script src="app/fonts/fonts.controller.js"></script>
-          <script src="app/fonts/fonts.js"></script>
-          <script src="app/highlightjs/highlightjs.directive.js"></script>
-          <!-- endinjector -->
-        <!-- endbuild -->
-</body>
+            </header>
+
+            <p class="download-info">
+              <a href="https://github.com/majodev/google-webfonts-helper" class="btn btn-default btn-large"
+                target="_blank" rel="noopener">View project on GitHub</a>
+              <a href="http://mranftl.com/2014/12/23/self-hosting-google-web-fonts/" class="btn btn-default btn-large"
+                target="_blank" rel="noopener">Read the author's note</a>
+              <a href="https://github.com/sponsors/majodev" class="btn btn-default btn-large" target="_blank" rel="noopener">Sponsor
+                this project</a>
+            </p>
+
+            <h3>Useful resources</h3>
+            <ul class="list-unstyled">
+              <li><a href="https://fonts.google.com/attribution" class="btn btn-link btn-large" target="_blank" rel="noopener">Google
+                  Fonts Open Source Font Attribution</a></li>
+              <li><a href="http://css-tricks.com/snippets/css/using-font-face/" class="btn btn-link btn-large"
+                  target="_blank" rel="noopener">Using @font-face</a></li>
+              <li><a href="http://caniuse.com/#feat=woff" class="btn btn-link btn-large" target="_blank" rel="noopener">Can I use woff?
+                  (compatibility information)</a></li>
+              <li><a href="https://gist.github.com/sergejmueller/cf6b4f2133bcb3e2f64a" class="btn btn-link btn-large"
+                  target="_blank" rel="noopener">WOFF 2.0 – Learn more about the next generation Web Font Format</a></li>
+              <li><a href="https://gist.github.com/lindsayevans/794800" class="btn btn-link btn-large"
+                  target="_blank" rel="noopener">Sample MIME server config (Apache, Nginx, IIS)</a></li>
+              <li><a href="https://github.com/gabiseabra/google-fonts-webpack-plugin" class="btn btn-link btn-large"
+                  target="_blank" rel="noopener">Google Fonts Webpack Plugin</a></li>
+              <li><a href="https://www.news47ell.com/how-to/host-google-fonts-locally-wordpress/"
+                  class="btn btn-link btn-large" target="_blank" rel="noopener">How to Host Google Fonts Locally in WordPress</a></li>
+            </ul>
+
+</template>
+    <noscript><p>Enable JavaScript to select fonts. The <a href="/api/fonts">font API</a> remains available.</p></noscript>
+    <script type="module" src="/@@APP_SCRIPT@@"></script>
+  </body>
 </html>

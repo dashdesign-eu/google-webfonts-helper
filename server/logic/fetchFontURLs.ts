@@ -1,4 +1,4 @@
-import * as Bluebird from "bluebird";
+import Bluebird from "bluebird";
 import * as _ from "lodash";
 import { config, IUserAgents } from "../config";
 import { fetchCSS } from "./fetchCSS";

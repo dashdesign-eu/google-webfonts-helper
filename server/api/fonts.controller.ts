@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import * as fs from "fs";
-import * as JSZip from "jszip";
+import JSZip from "jszip";
 import * as _ from "lodash";
 import * as path from "path";
 import { IUserAgents } from "../config";

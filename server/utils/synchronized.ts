@@ -12,14 +12,12 @@ export function synchronizedBy<A, T>(target: (...args: A[]) => Promise<T>): (cac
     let mutexPromise = mutexMap.get(cacheKey);
 
     if (_.isNil(mutexPromise)) {
-      // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-empty-function
-      let resolveMutexPromise: Function = () => {};
-      // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-empty-function
-      let rejectMutexPromise: Function = () => {};
+      let resolveMutexPromise!: (value: T | PromiseLike<T>) => void;
+      let rejectMutexPromise!: (reason: unknown) => void;
 
-      mutexPromise = new Promise<T>(function (this: Promise<T>, resolve, reject) {
-        resolveMutexPromise = resolve.bind(this);
-        rejectMutexPromise = reject.bind(this);
+      mutexPromise = new Promise<T>(function (resolve, reject) {
+        resolveMutexPromise = resolve;
+        rejectMutexPromise = reject;
       });
 
       mutexMap.set(cacheKey, mutexPromise);
